@@ -1,5 +1,6 @@
 package com.vinil
 
+    fun sum(x:Int,y:Int)=x+y
     fun main(){
         println("Welcome to Collection Examples")
         val nums = listOf(1,2,6,8,10)
@@ -13,4 +14,6 @@ package com.vinil
         strings[1]="is not"
         println(strings.toList())
         println(strings.toSortedSet())
+
+        println(sum(2,6))
     }
