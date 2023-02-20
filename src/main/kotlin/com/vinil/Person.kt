@@ -2,9 +2,22 @@ package com.vinil
 
 import java.time.LocalDate
 import java.time.Month
+import java.time.Year
 
 data class Person(val first: String?=null, val last:String, val dob:LocalDate )
 
+fun daysInaMonth(month: Month,year:Int) :Int{
+return when(month){
+    Month.SEPTEMBER,Month.APRIL,Month.JUNE,Month.NOVEMBER->30
+    Month.FEBRUARY-> if(Year.isLeap(year.toLong())) 29 else 28
+    else ->31
+}
+}
+fun daysInaMonth1(month: Month,year:Int) :Int = when(month){
+    Month.SEPTEMBER,Month.APRIL,Month.JUNE,Month.NOVEMBER->30
+    Month.FEBRUARY-> if(Year.isLeap(year.toLong())) 29 else 28
+    else ->31
+}
 fun main(){
     val name1 = Person("Rocky","Rocks",LocalDate.of(1988,Month.APRIL,10))
     val name2 = Person("Rocky","Rocks",LocalDate.of(1988,Month.APRIL,10))
@@ -32,10 +45,14 @@ fun main(){
     //Null Safety
     val brian = Person(last="Lara",dob=LocalDate.of(1982,Month.APRIL,12))
     val(f1,l1,_)=brian
-    if(f1 != null)
+    if(f1 != null) {
         println("$f1 $l1")
+        println("length of first name is ${f1.length}")//Smart Cast
+    }
     else
         println(l1)
     println("length of first name is ${f1?.length}")
-    println("length of first name is ${f1!!.length}") //This will result in Null Pointer Exception
+    //println("length of first name is ${f1!!.length}") //This will result in Null Pointer Exception
+
+    println( daysInaMonth(Month.FEBRUARY,2020))
 }
