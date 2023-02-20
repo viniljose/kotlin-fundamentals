@@ -22,4 +22,10 @@ fun main(){
     println("$f $l")
     val(fi,la,dob)=name1
     println("$fi $la")
+
+    //Infix functions e.g to
+    val map = mapOf("Rky" to name1,"Rbt" to robert)
+    println(map)
+    for((key,value) in map)
+        println("$key maps to $value")
 }
