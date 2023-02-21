@@ -8,6 +8,9 @@ fun callDB(hostname: String = "localhost",
 }
 
 }
+class Person (val name:String){
+    infix fun say(message:String)= println("$name is saying $message")
+}
 fun<T> manyArgs(vararg va :T){
     for (i in va)
         println(i)
@@ -24,4 +27,6 @@ fun main(){
     println(car.benz())
     println(car.bmw())
 
+    val name = Person("Vinil")
+    name say "Hello"
 }
