@@ -8,7 +8,14 @@ fun callDB(hostname: String = "localhost",
 }
 
 }
+fun<T> manyArgs(vararg va :T){
+    for (i in va)
+        println(i)
+}
 
 fun main(){
     Functions().callDB()
+    manyArgs(1,2,3)
+    manyArgs(9,"hai")
+    manyArgs(*"This is part of an array".split(" ").toTypedArray())
 }
