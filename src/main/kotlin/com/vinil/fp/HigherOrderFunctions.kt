@@ -8,9 +8,13 @@ fun execute(action:()->Unit){
     action()
     action.invoke()
 }
-
+fun executeArg(display:(msg:String)->Unit){
+    display("World")
+}
 
 fun main(){
   execute(doThis)
   execute(::doThat)
+  execute({ println("How is this") })
+  executeArg { println("Hello $it") }
 }
